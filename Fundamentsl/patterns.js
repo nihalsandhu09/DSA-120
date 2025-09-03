@@ -24,8 +24,8 @@ function pattern1(n) {
     console.log(str);
   }
 }
-pattern1(5);
-
+// pattern1(5);
+//
 // 2 Pattern: (n = 5)
 //     *
 //    **
@@ -47,7 +47,7 @@ function pattern2(n) {
     console.log(str);
   }
 }
-pattern2(5);
+// pattern2(5);
 
 // pattern
 
@@ -74,7 +74,7 @@ function pattern3(n) {
     console.log(row);
   }
 }
-pattern3(5);
+// pattern3(5);
 
 function pattern(n) {
   for (let i = 1; i <= n; i++) {
@@ -89,4 +89,87 @@ function pattern(n) {
     console.log(str);
   }
 }
-pattern(5);
+// pattern(5);
+
+/**🔹 Step 1: Solid Rectangle
+* * * * *
+* * * * *
+* * * * *
+
+
+👉 Input: rows = 3, cols = 5 */
+
+function pattern4(n) {
+  for (let i = 0; i < n - 2; i++) {
+    let str = "";
+
+    for (let j = 1; j <= n; j++) {
+      str += "*";
+    }
+    console.log(str);
+  }
+}
+pattern4(5);
+
+/**attern 2: Right-Angled Triangle.
+
+👉 Expected output for n = 4:
+
+*
+* *
+* * *
+* * * * */
+function pattern5(n) {
+  for (let i = 0; i < n; i++) {
+    let str = "";
+
+    for (let j = 0; j <= i; j++) {
+      str += "* ";
+    }
+    console.log(str);
+  }
+}
+// pattern5(4);
+
+/**Pattern 3: Inverted Right-Angled Triangle)
+
+👉 Expected output for n = 4:
+
+* * * * 
+* * * 
+* * 
+*  */
+
+function pattern6(n) {
+  for (let i = 0; i < n; i++) {
+    let str = "";
+    for (let j = 1; j <= n - i; j++) {
+      str += "* ";
+    }
+    console.log(str);
+  }
+}
+// pattern6(4);/
+
+/**tern 4: Pyramid (Centered)
+
+👉 Expected output for n = 4:
+
+   *   
+  * *  
+ * * * 
+* * * *  */
+
+function pattern7(n) {
+  for (let i = 0; i < n; i++) {
+    let str = "";
+    for (let s = 0; s < n - i - 1; s++) {
+      str += " ";
+    }
+    for (let j = 0; j <= i; j++) {
+      str += "* ";
+    }
+    console.log(str);
+  }
+}
+pattern7(4);
