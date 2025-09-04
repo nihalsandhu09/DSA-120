@@ -112,3 +112,59 @@ function findSecondLargest(arr) {
   return second === -Infinity ? null : second; // Handle case if no second largest
 }
 console.log(findSecondLargest([10, 20, 4, 45, 99]));
+
+/**Move All Zeros to the End
+
+Given an array, move all zeros to the end while maintaining the relative order of non-zero elements.
+
+Example:
+
+Input: [0, 1, 0, 3, 12]  
+Output: [1, 3, 12, 0, 0]
+
+
+⚡ Constraints:
+
+Do it in-place (no extra array).
+
+Time complexity O(n).
+
+Do you want to give it a try first? */
+
+// Brute force approach O(n²),
+function moveAllZeros(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] === 0) {
+        let temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+      }
+    }
+  }
+  return arr;
+}
+console.log(moveAllZeros([0, 1, 0, 3, 12]));
+
+// omptimize approach
+
+function moveAllZeros(arr) {
+  let pos = 0; // position for next non-zero
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== 0) {
+      arr[pos] = arr[i];
+      pos++;
+    }
+  }
+
+  // fill remaining positions with zero
+  while (pos < arr.length) {
+    arr[pos] = 0;
+    pos++;
+  }
+
+  return arr;
+}
+
+console.log(moveAllZeros([0, 1, 0, 3, 12])); // [1, 3, 12, 0, 0]
