@@ -168,3 +168,70 @@ function moveAllZeros(arr) {
 }
 
 console.log(moveAllZeros([0, 1, 0, 3, 12])); // [1, 3, 12, 0, 0]
+
+/**Q6: Rotate an Array by K Steps
+
+👉 Given an array, rotate it to the right by k steps, where k is non-negative.
+
+Example 1:
+
+Input: arr = [1, 2, 3, 4, 5, 6, 7], k = 3  
+Output: [5, 6, 7, 1, 2, 3, 4]
+
+
+Example 2:
+
+Input: arr = [-1, -100, 3, 99], k = 2  
+Output: [3, 99, -1, -100]
+
+
+⚡ Constraints:
+
+Don’t use extra arrays (O(1) space).
+
+Time complexity should be O(n). */
+
+function rotate(arr, k) {
+  let i = 0;
+  let j = arr.length - 1;
+
+  while (i < j) {
+    let temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+    i++;
+    j--;
+  }
+  arr[i] = arr[k];
+  k--;
+  i++;
+  return arr;
+}
+// console.log(rotate([1, 2, 3, 4, 5, 6, 7], (k = 3)));
+
+// right code
+function reverse(arr, start, end) {
+  while (start < end) {
+    let temp = arr[start];
+    arr[start] = arr[end];
+    arr[end] = temp;
+    start++;
+    end--;
+  }
+}
+
+function rotate(arr, k) {
+  k = k % arr.length; // handle if k > n
+
+  // Step 1: reverse whole array
+  reverse(arr, 0, arr.length - 1);
+
+  // Step 2: reverse first k elements
+  reverse(arr, 0, k - 1);
+
+  // Step 3: reverse remaining elements
+  reverse(arr, k, arr.length - 1);
+
+  return arr;
+}
+console.log(rotate([1, 2, 3, 4, 5, 6, 7], (k = 3)));
