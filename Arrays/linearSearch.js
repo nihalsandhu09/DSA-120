@@ -235,3 +235,5 @@ function rotate(arr, k) {
   return arr;
 }
 console.log(rotate([1, 2, 3, 4, 5, 6, 7], (k = 3)));
+
+// Find the missing Number 
